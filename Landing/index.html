@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <img src="jpg/logo.png" alt="">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">portfolio</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="slider-wrap">
+
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="slide-left">
+                            <h6 class="element">01</h6>
+                            <h1 class="element">Wooden Stool</h1>
+                            <p class="element">Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit. Voluptatibus,
+                                possimus?</p>
+                            <a class="element" href="#">Read More</a>
+                        </div>
+                        <div class="slide-right">
+                            <img src="jpg/slide1.jpg" height="635px" , width="820px" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-left">
+                            <h6 class="element">02</h6>
+                            <h1 class="element">Round Chair</h1>
+                            <p class="element">Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit. Voluptatibus,
+                                possimus?</p>
+                            <a class="element" href="#">Read More</a>
+                        </div>
+                        <div class="slide-right">
+                            <img src="jpg/slide2.jpg" height="635px" , width="820px" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-left">
+                            <h6 class="element">03</h6>
+                            <h1 class="element">White Lamp</h1>
+                            <p class="element">Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit. Voluptatibus,
+                                possimus?</p>
+                            <a class="element" href="#">Read More</a>
+                        </div>
+                        <div class="slide-right">
+                            <img src="jpg/slide3.jpg" height="635px" , width="820px" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"><img src="jpg/1.png" alt="" height="65px" , width="65px"></div>
+                <div class="swiper-button-next"><img src="jpg/2.png" alt="" height="65px" , width="65px"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var mySwiper = new Swiper('.swiper-container', {
+                loop: true,
+                effect: 'fade',
+                speed: 1500,
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+
+            //Swipper evento
+            mySwiper.on('slideChageTransitionStar', function(){
+                anime({
+                targets: '.swiper-slide-active .slide-right img',
+                scale: [1.2, 1],
+                opacity: [0, 1],
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.swiper-slide-active .slide-left .element',
+                translateY:[50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(150, { start: 500}),
+                easing: 'easeInOutQuart'
+            });
+              
+            });
+
+            anime({
+                targets: 'header',
+                scaleX: [0, 1],
+                translateX: [-400, 0],
+                opacity: [0, 1],
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.logo img',
+                rotate: 360,
+                opacity: [0, 1],
+                delay: 500,
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.menu li',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(200, { start: 700 }),
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.slide-right img',
+                scale: [1.2, 1],
+                opacity: [0, 1],
+                delay: anime.stagger(200, {start: 2000, from:'last'}),
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.swiper-slide-active .slide-left .element',
+                translateY:[50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(250, { start: 1700}),
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.swiper-button-prev',
+                translateX:[-100, 0],
+                opacity: [0, 1],
+                delay: 3000,
+                easing: 'easeInOutQuart'
+            });
+            anime({
+                targets: '.swiper-button-next',
+                translateY:[100, 0],
+                opacity: [0, 1],
+                delay: 3000,
+                easing: 'easeInOutQuart'
+            });                
+
+        });
+    </script>
+</body>
+
+</html>
